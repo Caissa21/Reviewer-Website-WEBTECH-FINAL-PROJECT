@@ -32,23 +32,26 @@ $downloads = $stmt->fetch();
 
 <body>
     <?php include 'components/sidebar.php'; ?>
-    <?php include 'components/topbar.php'; ?>
 
-    <main>
-        <div class="profile-card">
-            <h2><?= $_SESSION['avatar_initials'] ?></h2>
-            <h3><?= $user['full_name'] ?></h3>
-            <p><?= $user['email'] ?></p>
-            <p><?= $user['university'] ?></p>
-            <p>Joined: <?= $user['created_at'] ?></p>
-        </div>
+    <div class="content-wrapper">
+        <?php include 'components/topbar.php'; ?>
 
-        <div class="stats">
-            <h3>Statistics</h3>
-            <p>Total Reviewers: <?= $stats['total_reviewers'] ?></p>
-            <p>Total Downloads: <?= $downloads['total_downloads'] ?></p>
-        </div>
-    </main>
+        <main>
+            <div class="profile-card">
+                <h2><?= $_SESSION['avatar_initials'] ?></h2>
+                <h3><?= $user['full_name'] ?></h3>
+                <p><?= $user['email'] ?></p>
+                <p><?= $user['university'] ?></p>
+                <p>Joined: <?= $user['created_at'] ?></p>
+            </div>
+
+            <div class="stats">
+                <h3>Statistics</h3>
+                <p>Total Reviewers: <?= $stats['total_reviewers'] ?></p>
+                <p>Total Downloads: <?= $downloads['total_downloads'] ?></p>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>

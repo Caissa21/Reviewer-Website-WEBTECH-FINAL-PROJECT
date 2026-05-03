@@ -17,41 +17,44 @@ check_login();
 
 <body>
     <?php include 'components/sidebar.php'; ?>
-    <?php include 'components/topbar.php'; ?>
+
+    <div class="content-wrapper">
+        <?php include 'components/topbar.php'; ?>
 
 
-    <main>
-        <form action="actions/upload-reviewer.php" method="POST" enctype="multipart/form-data">
-            <label for="">Title</label>
-            <input type="text" name="title">
+        <main>
+            <form action="actions/upload-reviewer.php" method="POST" enctype="multipart/form-data">
+                <label for="">Title</label>
+                <input type="text" name="title">
 
-            <label>Topic</label>
-            <select name="topic">
-                <option value="C++">C++</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="Python">Python</option>
-                <option value="Java">Java</option>
-                <option value="PHP">PHP</option>
-                <option value="HTML/CSS">HTML/CSS</option>
-                <option value="SQL">SQL</option>
-                <option value="Data Structures">Data Structures</option>
-                <option value="Algorithms">Algorithms</option>
-                <option value="Web Development">Web Development</option>
-            </select>
+                <label>Topic</label>
+                <select name="topic">
+                    <option value="C++">C++</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="PHP">PHP</option>
+                    <option value="HTML/CSS">HTML/CSS</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Data Structures">Data Structures</option>
+                    <option value="Algorithms">Algorithms</option>
+                    <option value="Web Development">Web Development</option>
+                </select>
 
-            <label for="">Description</label>
-            <textarea name="description"></textarea>
+                <label for="">Description</label>
+                <textarea name="description"></textarea>
 
-            <label for="">Tags</label>
-            <input type="text" name="tags">
+                <label for="">Tags</label>
+                <input type="text" name="tags">
 
-            <label for="">File</label>
-            <input type="file" name="file">
+                <label for="">File</label>
+                <input type="file" name="file">
 
-            <button type="submit">Upload Reviewer</button>
-            <button type="button" onclick="window.location.href='dashboard.php'">Cancel</button>
-        </form>
-    </main>
+                <button type="submit">Upload Reviewer</button>
+                <button type="button" onclick="window.location.href='dashboard.php'">Cancel</button>
+            </form>
+        </main>
+    </div>
 
 </body>
 

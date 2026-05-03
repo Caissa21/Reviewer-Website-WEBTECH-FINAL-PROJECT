@@ -10,23 +10,31 @@
 </head>
 
 <body>
-    <h1>Welcome Back</h1>
-    <p>Sign in to access CS Reviewer Hub</p>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>Welcome Back</h1>
+            <p>Sign in to access CS Reviewer Hub</p>
 
-    <form action="actions/login.php" method="POST">
+            <form action="actions/login.php" method="POST">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter your email">
+                </div>
 
-        <label>Enter your Email</label>
-        <input type="email" name="email">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password">
+                </div>
 
-        <label>Enter your Password</label>
-        <input type="password" name="password">
+                <div class="form-group">
+                    <label><input type="checkbox" name="remember_me"> Remember me</label>
+                </div>
 
-        <label>Remember me</label>
-        <input type="checkbox" name="remember_me">
+                <button type="submit" class="btn-primary">Sign In</button>
+                <button type="button" class="btn-secondary" onclick="window.location.href='register.php'">Create Account</button>
+            </form>
 
-        <button type="submit">Sign in</button>
-
-        <a href="register.php">Sign up</a>
-    </form>
-</body>
-</html>
+            <p>Don't have an account? <a href="register.php">Sign up</a></p>
+        </div>
+    </div>
+</body></html>
