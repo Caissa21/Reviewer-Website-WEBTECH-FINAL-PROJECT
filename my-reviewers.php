@@ -15,9 +15,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$_SESSION['user_id']]);
 $reviewers = $stmt->fetchAll();
 
-//sadasdasdasd
- //asdasdasd
-//asidjasjidniasbdishdh
 ?>
 
 <!DOCTYPE html>
