@@ -30,7 +30,29 @@ $reviewers = $stmt->fetchAll();
     <?php include 'components/sidebar.php'; ?>
     <?php include 'components/topbar.php'; ?>
 
+
+    <main>
+        <h1>My Reviewers</h1>
+
+        <div class="reviewers-grid">
+            <?php if (empty($reviewers)): ?>
+                <p>No reviewers found.</p>
+            <?php else: ?>
+                <?php foreach ($reviewers as $reviewer): ?>
+                    <div class="reviewer-card">
+                        <h3><?= $reviewer['title'] ?></h3>
+                        <p><?= $reviewer['topic'] ?></p>
+                        <p>By: <?= $reviewer['full_name'] ?></p>
+                        <p>Downloads: <?= $reviewer['downloads'] ?></p>
+                        <p>Views: <?= $reviewer['views'] ?></p>
+                        <p>Date: <?= $reviewer['created_at'] ?></p>
+                        <a href="view-reviewer.php?id=<?= $reviewer['id'] ?>">View</a>
+                        <a href="edit-reviewer.php?id=<?= $reviewer['id'] ?>">Edit</a>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </main>
 </body>
+
 </html>
-
-
