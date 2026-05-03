@@ -28,12 +28,16 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $reviewers = $stmt->fetchAll();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Dashboard | CS Reviewer Hub</title>
 </head>
 
@@ -58,19 +62,47 @@ $reviewers = $stmt->fetchAll();
         </div>
 
         <div class="reviewers-grid">
-            <?php if(empty($reviewers)):?>
+            <?php if (empty($reviewers)): ?>
                 <p>No reviewers found.</p>
             <?php else: ?>
-                <?php foreach($reviewers as $reviewer): ?>
+                <?php foreach ($reviewers as $reviewer): ?>
                     <div class="reviewer-card">
-                        <h3><?=  $reviewer['title'] ?></h3>
-                        <p><?= $reviewer['topic'] ?></p>
-                        <p>By: <?= $reviewer['full_name'] ?></p>
-                        <p>Downloads: <?= $reviewer['downloads'] ?></p>
-                        <p>Views: <?= $reviewer['views'] ?></p>
-                        <p>Date: <?= $reviewer['created_at'] ?></p>
-                        <a href="view-reviewer.php?id=<?= $reviewer['id'] ?>">View</a>
+                        <div class="card-top">
+                            <h3><?= $reviewer['title'] ?></h3>
+                            <span class="rating">⭐ 0.0</span>
+                        </div>
+
+                        <?php
+                        $badge_class = match ($reviewer['topic']) {
+                            'C++' => 'badge-cpp',
+                            'JavaScript' => 'badge-javascript',
+                            'Python' => 'badge-python',
+                            'Java' => 'badge-java',
+                            'PHP' => 'badge-php',
+                            'HTML/CSS' => 'badge-htmlcss',
+                            'SQL' => 'badge-sql',
+                            'Data Structures' => 'badge-datastructures',
+                            'Algorithms' => 'badge-algorithms',
+                            'Web Development' => 'badge-webdevelopment',
+                            default => 'badge-default'
+                        };
+                        ?>
+                        <span class="topic-badge <?= $badge_class ?>"><?= $reviewer['topic'] ?></span>
+
+                        <div class="card-author">
+                            <i class="fas fa-user"></i>
+                            <?= $reviewer['full_name'] ?> • <?= date('M d, Y', strtotime($reviewer['created_at'])) ?>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="card-stats">
+                                <span><i class="fas fa-download"></i> <?= $reviewer['downloads'] ?></span>
+                                <span><i class="fas fa-eye"></i> <?= $reviewer['views'] ?></span>
+                            </div>
+                            <a href="view-reviewer.php?id=<?= $reviewer['id'] ?>">View</a>
+                        </div>
                     </div>
+
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
