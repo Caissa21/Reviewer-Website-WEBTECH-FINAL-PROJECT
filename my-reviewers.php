@@ -37,6 +37,7 @@ $reviewers = $stmt->fetchAll();
 
         <main>
             <h1>My Reviewers</h1>
+            <p class="page-subtitle">Manage and track your uploaded reviewers</p>
 
             <div class="reviewers-grid">
                 <?php if (empty($reviewers)): ?>
@@ -44,14 +45,43 @@ $reviewers = $stmt->fetchAll();
                 <?php else: ?>
                     <?php foreach ($reviewers as $reviewer): ?>
                         <div class="reviewer-card">
-                            <h3><?= $reviewer['title'] ?></h3>
-                            <p><?= $reviewer['topic'] ?></p>
-                            <p>By: <?= $reviewer['full_name'] ?></p>
-                            <p>Downloads: <?= $reviewer['downloads'] ?></p>
-                            <p>Views: <?= $reviewer['views'] ?></p>
-                            <p>Date: <?= $reviewer['created_at'] ?></p>
-                            <a href="view-reviewer.php?id=<?= $reviewer['id'] ?>">View</a>
-                            <a href="edit-reviewer.php?id=<?= $reviewer['id'] ?>">Edit</a>
+                            <div class="card-top">
+                                <h3><?= $reviewer['title'] ?></h3>
+                                <span class="rating">⭐ 0.0</span>
+                            </div>
+
+                            <?php
+                            $badge_class = match ($reviewer['topic']) {
+                                'C++' => 'badge-cpp',
+                                'JavaScript' => 'badge-javascript',
+                                'Python' => 'badge-python',
+                                'Java' => 'badge-java',
+                                'PHP' => 'badge-php',
+                                'HTML/CSS' => 'badge-htmlcss',
+                                'SQL' => 'badge-sql',
+                                'Data Structures' => 'badge-datastructures',
+                                'Algorithms' => 'badge-algorithms',
+                                'Web Development' => 'badge-webdevelopment',
+                                default => 'badge-default'
+                            };
+                            ?>
+                            <span class="topic-badge <?= $badge_class ?>"><?= $reviewer['topic'] ?></span>
+
+                            <div class="card-author">
+                                <i class="fas fa-user"></i>
+                                <?= $reviewer['full_name'] ?> • <?= date('M d, Y', strtotime($reviewer['created_at'])) ?>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="card-stats">
+                                    <span><i class="fas fa-download"></i> <?= $reviewer['downloads'] ?></span>
+                                    <span><i class="fas fa-eye"></i> <?= $reviewer['views'] ?></span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="view-reviewer.php?id=<?= $reviewer['id'] ?>">View</a>
+                                    <a href="edit-reviewer.php?id=<?= $reviewer['id'] ?>" class="btn-edit">Edit</a>
+                                </div>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
