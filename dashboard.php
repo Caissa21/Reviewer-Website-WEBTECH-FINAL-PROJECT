@@ -50,6 +50,7 @@ $reviewers = $stmt->fetchAll();
 
         <main>
             <h1>Dashboard</h1>
+            <p class="page-subtitle">Explore and share CS reviewers with your peers</p>
             <div class="filter">
                 <a href="dashboard.php" class="filter-btn <?= empty($topic) ? 'active' : '' ?>">All Topics</a>
                 <a href="dashboard.php?topic=<?= urlencode('C++') ?>" class="filter-btn <?= $topic === 'C++' ? 'active' : '' ?>">C++</a>
