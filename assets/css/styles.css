@@ -289,6 +289,76 @@ main {
 .badge-webdevelopment { background-color: #1abc9c; color: white; }
 .badge-default        { background-color: var(--accent); color: white; }
  
+/* ============ FORM ELEMENTS (shared) ============ */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+ 
+.form-group label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+ 
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border);
+    color: var(--text-primary) !important;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+}
+ 
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+ 
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+ 
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+ 
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+ 
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+ 
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+ 
 /* ============ AUTH PAGES ============ */
 .auth-container {
     display: flex;
@@ -324,55 +394,113 @@ main {
     text-decoration: none;
 }
  
-.form-group {
+/* ============ UPLOAD PAGE ============ */
+.page-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+ 
+.form-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+ 
+.file-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 10px;
+    position: relative;
 }
  
-.form-group label {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-}
- 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"] {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: 10px 15px;
-    border-radius: 8px;
-    width: 100%;
-}
- 
-.btn-primary {
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-}
- 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-}
- 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-}
- 
-.btn-secondary:hover {
+.file-upload-area:hover {
     border-color: var(--accent);
+}
+ 
+.file-upload-area i {
+    font-size: 2rem;
     color: var(--accent);
 }
+ 
+.file-upload-area p {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+ 
+.file-upload-area span {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+ 
+.file-upload-area input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+ 
+.guidelines-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+ 
+.guidelines-box i {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+ 
+.guidelines-box strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+ 
+.guidelines-box ul {
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+ 
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+ 
+.form-buttons .btn-primary {
+    flex: 1;
+}
+ 
+.form-buttons .btn-secondary {
+    width: auto;
+    padding: 10px 25px;
+}
+ 

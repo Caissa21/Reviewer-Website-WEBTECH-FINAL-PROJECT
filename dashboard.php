@@ -52,9 +52,8 @@ $reviewers = $stmt->fetchAll();
             <h1>Dashboard</h1>
             <div class="filter">
                 <a href="dashboard.php" class="filter-btn <?= empty($topic) ? 'active' : '' ?>">All Topics</a>
-                <a href="dashboard.php?topic=C++" class="filter-btn <?= $topic === 'C++' ? 'active' : '' ?>">C++</a>
-                <a href="dashboard.php?topic=JavaScript" class="filter-btn <?= $topic === 'JavaScript' ? 'active' : '' ?>">JavaScript</a>
-                <a href="dashboard.php?topic=Python" class="filter-btn <?= $topic === 'Python' ? 'active' : '' ?>">Python</a>
+                <a href="dashboard.php?topic=<?= urlencode('C++') ?>" class="filter-btn <?= $topic === 'C++' ? 'active' : '' ?>">C++</a>
+                <a href="dashboard.php?topic=JavaScript" class="filter-btn <?= $topic === 'JavaScript' ? 'active' : '' ?>">JavaScript</a> <a href="dashboard.php?topic=Python" class="filter-btn <?= $topic === 'Python' ? 'active' : '' ?>">Python</a>
                 <a href="dashboard.php?topic=Java" class="filter-btn <?= $topic === 'Java' ? 'active' : '' ?>">Java</a>
                 <a href="dashboard.php?topic=PHP" class="filter-btn <?= $topic === 'PHP' ? 'active' : '' ?>">PHP</a>
                 <a href="dashboard.php?topic=HTML/CSS" class="filter-btn <?= $topic === 'HTML/CSS' ? 'active' : '' ?>">HTML/CSS</a>
